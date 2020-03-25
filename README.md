@@ -1,2 +1,2 @@
 # pybarrage
-Python3 fork of LGames' Barrage
+Python3 fork of LGames' Barrage (http://lgames.sourceforge.net/Barrage/)
