@@ -5,7 +5,8 @@ import sdl2
 import sdl2.ext
 import sys
 
-VERSION = '1.0.5'
+def VERSION() -> str:
+    return '1.0.5'
 
 def load_image_attribs(factory: sdl2.ext.SpriteFactory, strPath: str, rgbColorKey: tuple) -> sdl2.ext.Sprite:
     sfImage = sdl2.ext.load_image(strPath)
@@ -15,8 +16,8 @@ def load_image_attribs(factory: sdl2.ext.SpriteFactory, strPath: str, rgbColorKe
     sdl2.SDL_SetColorKey(sfImage, sdl2.SDL_TRUE, sdl2.SDL_MapRGB(sfImage.format, rgbColorKey[0], rgbColorKey[1], rgbColorKey[2]))
     return factory.from_surface(sfImage)
 
-def main(argv):
-    print('BARRAGE v' + VERSION)
+def main(argv: tuple) -> int:
+    print('BARRAGE v' + VERSION())
     print('Copyright 2003-2019 Michael Speck (http://lgames.sf.net)')
     print('Released under GNU GPL\n---')
     sdl2.ext.init()
@@ -54,5 +55,6 @@ def main(argv):
                     break
 
     sdl2.ext.quit()
+    return 0
 
-if __name__ == '__main__': main(sys.argv)
+if __name__ == '__main__': sys.exit(main(tuple(sys.argv)))
